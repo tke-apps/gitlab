@@ -1,0 +1,45 @@
+# Default values for gitlab-chart.
+# This is a YAML-formatted file.
+
+global:
+  edition: ee
+  hosts:
+    domain: example.com
+    https: true
+  enterpriseImages:
+    # Default repositories used to pull Gitlab Enterprise Edition images.
+    # See the image.repository and workhorse.repository template helpers.
+    migrations:
+      repository: registry.imroc.cc/gitlab/gitlab-toolbox-ee
+    sidekiq:
+      repository: registry.imroc.cc/gitlab/gitlab-sidekiq-ee
+    toolbox:
+      repository: registry.imroc.cc/gitlab/gitlab-toolbox-ee
+    webservice:
+      repository: registry.imroc.cc/gitlab/gitlab-webservice-ee
+    workhorse:
+      repository: registry.imroc.cc/gitlab/gitlab-workhorse-ee
+    geo-logcursor:
+      repository: registry.imroc.cc/gitlab/gitlab-geo-logcursor
+  communityImages:
+    # Default repositories used to pull Gitlab Community Edition images.
+    # See the image.repository and workhorse.repository template helpers.
+    migrations:
+      repository: registry.imroc.cc/gitlab/gitlab-toolbox-ce
+    sidekiq:
+      repository: registry.imroc.cc/gitlab/gitlab-sidekiq-ce
+    toolbox:
+      repository: registry.imroc.cc/gitlab/gitlab-toolbox-ce
+    webservice:
+      repository: registry.imroc.cc/gitlab/gitlab-webservice-ce
+    workhorse:
+      repository: registry.imroc.cc/gitlab/gitlab-workhorse-ce
+  # This exists to support template handling
+  psql:
+    knownDecompositions:
+      - main
+      - ci
+
+gitlab-runner:
+  enabled: false
+
